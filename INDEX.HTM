@@ -1,0 +1,153 @@
+<html>
+<head>
+	<title>dmmx - A journey from the future to the past</title>
+</head>
+<body>
+	dmmx
+	<hr>
+	
+	<h1>What's New</h1>
+	
+	<h2>Atari from Scratch Part 1</h2>
+	<pre>2023-05-29</pre>
+	<p>Now that we have a minimal publishing workflow in place, let's take a 
+	look at our Atari environment. The current environment works well, but over
+	the years has incurred a lot of unnecessary cruft and is badly disorganized.
+	So it is time to get things in shape. There are many ways to go about this,
+	but lets start from square one and build a working system up from scratch.</p>
+	
+	<p>The first thing we need is an Atari ST emulator. For Macos, let's go with
+	<a href="https://hatari.tuxfamily.org">Hatari</a>. It is well maintained with 
+	latest version <a href="https://download.tuxfamily.org/hatari/2.4.1/">2.4.1</a> 
+	having been released on 2022-08-03. It also has a nice Macos version that 
+	installs into the Applications folder in the usual way.</p>
+	
+	<p>Now on my Mac I already have an folder named Hatari where I would like to
+	store all of my Atari ST related files. But as mentioned its a bit of a mess.
+	So let's first put it under version control with git.</p>
+	
+	<pre>
+	$ cd ~/Hatari
+	$ git init
+	</pre>
+	
+	<p>Then lets setup .gitignore to ignore everything in the Hatari folder, with
+	particular care to ignore all .DS_Store files. When finished, the .gitignore file
+	looks like this:</p>
+	
+	<pre>	
+	#.gitignore#
+	
+	**/.DS_Store
+	**/*.*~
+	
+	D\ Drive/
+	D\ Drive Empty/
+	Falcon\ C\ Drive/
+	Falcon\ hdimage.80.img
+	Falcon\ hdimage2.80.img
+	HardDrive/
+	Hatari\ Configs
+	acsi/
+	falcon_c_drive_2/
+	hdimage.80.emutos.img
+	hdimage.80.img
+	source/
+	</pre>
+	
+	<p>With all of our past trangrssions out of the way, we can start afresh, so let's
+	start with a cfg directory for our Hatari configuration files. For our first
+	first config file we need to choose a machine configuration and a TOS. For the
+	machine let's go with an Atari Mega STE</p>
+	
+	Images for the below configuration panels are store on the <a href=IMAGES.HTM>
+	Images</a> page.
+	
+	<h3>System Options</h3>
+	<!-- <img src="IMG/SYSOPT.GIF"/> -->
+	
+	<table border>
+	<tr><th>Machine Type:<th/><td>Mega STE</td><tr/>
+	<tr><th>Video timing:<th/><td>Wakestate3</td><tr/>
+	<tr><th>Blitter in ST mode:<th/><td>Checked</td></tr>
+	</table>
+	
+	<p>All other settings as default</p>
+	
+	<h3>CPU Options</h3>
+	<!-- <img src="IMG/CPU.GIF"/> -->
+	
+	<table border>
+	<tr><th>CPU type:</th><td>68000/td></tr>
+	<tr><th>CPU clock:</th><td>16 Mhz</td></tr>
+	<tr><th>24-bit addressing</th><td>Checked</td></tr>
+	</table>
+
+	<p>All other settings as default.</p>
+	
+	<h3>TOS Image</h3>
+	<!-- <img src="IMG/TOS.GIF"/> -->
+	
+	<p><a href="https://emutos.sourceforge.io">Emutos</a>, etos1024k.img</p>
+	
+	
+	<h3>Memory Setup</h3>
+	<!-- <img src="IMG/MEMSET.GIF"/> -->
+	
+	<p>4 MiB to match the maximum of the time. Hatari will go as high as
+	14 MiB, so we may change this in the future.</p>
+	
+	<h3>Floppy Drive Setup</h3>
+	<!-- <img src="IMG/FLOPPY.GIF"/> -->
+	
+	<table border>
+	<tr><th span="2">Drive A:</th>
+	<tr><th>Enabled</th><td>Checked</td></tr>
+	<tr><th>Double Sided</th><td>Checked</td><tr>
+	<tr><th span="2">Drive B:</th>
+	<tr><th>Enabled</th><td>Checked</td></tr>
+	<tr><th>Double Sided</th><td>Checked</td><tr>
+	</table>
+	
+	<p>Default floppy images directory:</p>
+	<p>$HATARI_DIR/fd</p>
+	
+	<p>All other settings set as defaults.</p>
+	
+	<h3>Atari Monitor Setup</h3>
+	<!-- <img src="IMG/ATARIMON.GIF"/> -->
+	
+	<table border>
+	<tr><th>Atari monitor</th><td>RGB</td></tr>
+	<tr><th>Show borders</th><td>Unchecked</td></tr>
+	</table>
+	
+	<p>All other settings set to defaults.</p>
+	<h2>Publishing Workflow 0.1</h2>
+	<pre>2023-05-29</pre>
+	<p>First thing I want to establish in a basic, minimal, publishing workflow
+	for my blog. Writing will be done on Hatari, an Atari ST emulator. The 
+	writing tools will vary, but to start I'll use the QED text editor to write
+	the HTML pages and the CAB web browser to preview them. This is a nice 
+	combination because I configured QED to be the source viewer in CAB.
+	This gives me the ability to launch QED from CAB and then edit pages, close
+	QED, and review the pages before publication. To get started publication
+	involves simply converting the filenames to lowercase, changing the
+	extension from .htm to .html, and then copying the files from the BLOG
+	folder where the souce files are stored to the dmmx.github.io folder
+	where the git repo for the blog resides. I can then run the git commands
+	to publish the blog from there. The lowercase, extension conversion, and
+	copy are all done from the host computer.
+	<p>
+	
+	<h2>Beginning Again</h2>
+	<pre>2023-05-29</pre>
+	<p>Today I start a new blog to talk about the projects I am working
+	on. There was actually a first attempt using Jekyll, but that was getting
+	to hard to maintain. Jekyll is build on Ruby, and ruby on the Mac was
+	getting to hard to keep up to date. Maybe I'll futz with it later.
+	Eventually I would like to use a static site generator, but for now it
+	is static html pages.
+	</p>
+	
+</body> 
