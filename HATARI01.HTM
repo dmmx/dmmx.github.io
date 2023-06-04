@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>dmmx - AI, Cloud, Retro</title>
+</head>
+<body>
+<a href="index.html">dmmx</a>
+<hr>
+	
+<h1>Hatari Configuration Part 1</h1>
+<pre>2023-05-29</pre>
+
+<p>The first thing we need is an Atari ST emulator. For Macos, let's go with
+<a href="https://hatari.tuxfamily.org">Hatari</a>. It is well maintained with 
+latest version <a href="https://download.tuxfamily.org/hatari/2.4.1/">2.4.1</a> 
+having been released on 2022-08-03. It also has a nice Macos version that 
+installs into the Applications folder in the usual way.</p>
+
+
+Images for the below configuration panels are store on the <a href=IMAGES.HTM>
+Images</a> page.
+	
+<h3>System Options</h3>
+<!-- <img src="IMG/SYSOPT.GIF"/> -->
+	
+<table border>
+<tr><th>Machine Type:<th/><td>Mega STE</td><tr/>
+<tr><th>Video timing:<th/><td>Wakestate3</td><tr/>
+<tr><th>Blitter in ST mode:<th/><td>Checked</td></tr>
+</table>
+	
+<p>All other settings as default</p>
+
+<h3>CPU Options</h3>
+<!-- <img src="IMG/CPU.GIF"/> -->
+	
+<table border>
+<tr><th>CPU type:</th><td>68000/td></tr>
+<tr><th>CPU clock:</th><td>16 Mhz</td></tr>
+<tr><th>24-bit addressing</th><td>Checked</td></tr>
+</table>
+
+<p>All other settings as default.</p>
+	
+<h3>TOS Image</h3>
+<!-- <img src="IMG/TOS.GIF"/> -->
+
+<p><a href="https://emutos.sourceforge.io">Emutos</a>, etos1024k.img</p>
+
+	
+<h3>Memory Setup</h3>
+<!-- <img src="IMG/MEMSET.GIF"/> -->
+	
+<p>4 MiB to match the maximum of the time. Hatari will go as high as
+14 MiB, so we may change this in the future.</p>
+	
+<h3>Floppy Drive Setup</h3>
+<!-- <img src="IMG/FLOPPY.GIF"/> -->
+	
+<table border>
+<tr><th span="2">Drive A:</th>
+<tr><th>Enabled</th><td>Checked</td></tr>
+<tr><th>Double Sided</th><td>Checked</td><tr>
+<tr><th span="2">Drive B:</th>
+<tr><th>Enabled</th><td>Checked</td></tr>
+<tr><th>Double Sided</th><td>Checked</td><tr>
+</table>
+	
+<p>Default floppy images directory:</p>
+<p>$HATARI_DIR/fd</p>
+
+<p>All other settings set as defaults.</p>
+
+<h3>Atari Monitor Setup</h3>
+<!-- <img src="IMG/ATARIMON.GIF"/> -->
+	
+<table border>
+<tr><th>Atari monitor</th><td>RGB</td></tr>
+<tr><th>Show borders</th><td>Unchecked</td></tr>
+</table>
+	
+<p>All other settings set to defaults.</p>
+
+</body>
+</html>
