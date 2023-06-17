@@ -1,84 +1,124 @@
 <html>
 <head>
-	<title>dmmx - AI, Cloud, Retro</title>
+  <title>Getting Started with Hatari</title>
 </head>
 <body>
-<a href="index.html">dmmx</a>
-<hr>
-	
-<h1>Hatari Configuration Part 1</h1>
-<pre>2023-05-29</pre>
 
-<p>The first thing we need is an Atari ST emulator. For Macos, let's go with
-<a href="https://hatari.tuxfamily.org">Hatari</a>. It is well maintained with 
-latest version <a href="https://download.tuxfamily.org/hatari/2.4.1/">2.4.1</a> 
-having been released on 2022-08-03. It also has a nice Macos version that 
-installs into the Applications folder in the usual way.</p>
+<h1>Hatari</h1>
 
+<p>Hatari is an <a href="https://en.wikipedia.org/wiki/Atari_ST">Atari ST</a>
+ emulator available for MacOS, Windows, and Unix
+operating systems. You can download Hatari from <a href="hatari.tuxfamily.org">
+hatari.tuxfamily.org</a>. The latest version as of August 17, 2022 is version 
+<a href="https://download.tuxfamily.org/hatari/2.4.1/">1.4.1</a>. I am using a
+Mac so all that follows will be oriented towards MacOS.</p>
 
-Images for the below configuration panels are store on the <a href=IMAGES.HTM>
-Images</a> page.
-	
-<h3>System Options</h3>
-<!-- <img src="IMG/SYSOPT.GIF"/> -->
-	
-<table border>
-<tr><th>Machine Type:<th/><td>Mega STE</td><tr/>
-<tr><th>Video timing:<th/><td>Wakestate3</td><tr/>
-<tr><th>Blitter in ST mode:<th/><td>Checked</td></tr>
-</table>
-	
-<p>All other settings as default</p>
+<h1>Configuration and Media Folder</h1>
 
-<h3>CPU Options</h3>
-<!-- <img src="IMG/CPU.GIF"/> -->
-	
-<table border>
-<tr><th>CPU type:</th><td>68000/td></tr>
-<tr><th>CPU clock:</th><td>16 Mhz</td></tr>
-<tr><th>24-bit addressing</th><td>Checked</td></tr>
-</table>
+<p>To store Hatari configuration files and media files like floppy disk images
+let's create a folder and name it Hatari. Create the folder in a convenient 
+place such as inside your home directory or on your desktop. Inside the
+Hatari folder let's create a cfg and a tos folder. Our Hatari folder should 
+look like this:
 
-<p>All other settings as default.</p>
-	
-<h3>TOS Image</h3>
-<!-- <img src="IMG/TOS.GIF"/> -->
+<pre>
+~/Hatari/
+    cfg/
+    tos/
+</pre>
 
-<p><a href="https://emutos.sourceforge.io">Emutos</a>, etos1024k.img</p>
+<h1>TOS</h1>
 
-	
-<h3>Memory Setup</h3>
-<!-- <img src="IMG/MEMSET.GIF"/> -->
-	
-<p>4 MiB to match the maximum of the time. Hatari will go as high as
-14 MiB, so we may change this in the future.</p>
-	
-<h3>Floppy Drive Setup</h3>
-<!-- <img src="IMG/FLOPPY.GIF"/> -->
-	
-<table border>
-<tr><th span="2">Drive A:</th>
-<tr><th>Enabled</th><td>Checked</td></tr>
-<tr><th>Double Sided</th><td>Checked</td><tr>
-<tr><th span="2">Drive B:</th>
-<tr><th>Enabled</th><td>Checked</td></tr>
-<tr><th>Double Sided</th><td>Checked</td><tr>
-</table>
-	
-<p>Default floppy images directory:</p>
-<p>$HATARI_DIR/fd</p>
+<p>Like the Atari ST computer, Hatari requires a version of 
+<a href="https://en.wikipedia.org/wiki/Atari_TOS">The Operation
+System (TOS)</a>. To start with we will use 
+<a href="https://emutos.sourceforge.io">emutos</a> which is a free and modern
+version of TOS. You can download emutos at 
+<a href="https://sourceforge.net/projects/emutos/files/emutos/1.2.1">
+sourceforge.net</a>. The latest version as of August 16, 2022 is 
+version 1.2.1. There are several versions available but the one we want is 
+emutos-1024k-1.2.1. Once download, unzip the file into the tos 
+folder. This should create a sub-folder named emutos-1024k-1.2.1. 
+Inside that folder, we will use the etos1024k.img file as our TOS.
+</p>
 
-<p>All other settings set as defaults.</p>
+<h1>Initial Configuration File</h1>
 
-<h3>Atari Monitor Setup</h3>
-<!-- <img src="IMG/ATARIMON.GIF"/> -->
-	
-<table border>
-<tr><th>Atari monitor</th><td>RGB</td></tr>
-<tr><th>Show borders</th><td>Unchecked</td></tr>
-</table>
-	
-<p>All other settings set to defaults.</p>
+<p>On my Mac Hatari likes to use <b>~/Library/Application Support/Hatari</b> 
+as the default folder for configuration files. I don't find this
+particularly convient, so I created an alias to the <b>cfg</b> folder and
+put it in the default folder. I then created an alias to the default folder and
+put it in the <b>~/Hatari</b> folder. This way I can easily move between
+the folders when necessary</p>
+
+<p>Hatari keeps its configurations in files with a <b>.cfg</b> prefix. We
+could create a configuration file by hand, but a better way is through the
+configuration UI built into Hatari. On my Mac, I can get to the configuration
+settings by pressing COMMAND-, (the usual shortcut to get to preferences). 
+There is also a configuration UI accessible by pressing the F12 key. On the
+Mac the preferences are divided into ten tabs: Disks, Rom, Atari Screen,
+Display, Sound, System, Joysticks, Keyboard, Peripheral, and Other. Let's
+take a look at each tab and make changes to setup Hatari to emulate a base
+model Atari Mega STE with 4 megabytes of RAM.</p>
+
+<h2>Disks</h2>
+
+<p>Let's enable both Drive A and B, and make them both double sided. We can
+also select <b>Auto insert B</b>, which might come in handy later. 
+Now let's create an <b>fd</b> folder in our <b>~/Hatari</b> folder 
+and set  <b>Default images location</b> to point to that directory. We will
+set up hard disks at a later time.</p>
+
+<h2>ROM</h2>
+
+<p>Set <b>TOS Image</b> to point to the etos1024k.img file downloaded 
+earlier. The Cartridge image setting can be left empty.</p>
+
+<h2>Atari Screen</h2>
+
+<p>Set <b>Monitor</b> to <b>RGB</b> to emulate an Atari color monitor. We will
+start out with a color monitor switching betweeb low and medium resolution. 
+We can also use a Mono monitor for productivity applications when necessary,
+though it does require a restart.</p>
+
+<h2>Display</h2>
+
+<p>We can keep these setting as is for now, though we may need to tweak them 
+for performance reasons later.</p>
+
+<h2>Sound</h2>
+
+<p>No changes needed</p>
+
+<h2>System</h2>
+
+<p>Since we want to configure a basic Atari Mega STE with 4 megabytes of
+memory, use the following settings:</p>
+
+<p><b>Machine Type:</b>  Mega STE</p>
+<p><b>CPU:</b>  68000 at 16 MHz</p>
+<p><b>FPU:</b>  None</p>
+<p><b>ST RAM Size:</b>  4 Mib</p>
+
+<h2>Joysticks</h2>
+
+<p>No changes needed.</p>
+
+<h2>Keyboard</h2>
+
+<p>For the best compatibility I change the Keyboard mapping to 
+<b>Scancode</b>. With this setting the tilde (~) and the backslash (\) keys 
+are reversed, but all other keys are mapped correctly.</p>
+
+<h2>Peripheral</h2>
+
+<p>No changes.</p>
+
+<h2>Other</h2>
+
+<p>No changes.</p>
+
 
 </body>
 </html>
+
