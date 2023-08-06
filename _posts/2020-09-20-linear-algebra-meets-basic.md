@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Linear Programming Meets BASIC"
+subject: atari
 ---
 
 Linear progamming and linear algebra underpin many of the algorithms used today in machine learning and other complex computer applications. Linear algebra mainly deals with linear equations, while linear programming deals mainly with linear inequalities. Of particular interest is the use of linear programming to optimize a linear function.
