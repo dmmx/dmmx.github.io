@@ -37,8 +37,11 @@ plugins:
   - jekyll-feed
 
 header_pages:
+  - ai.md
+  - cloud.md
+  - atari.md
   - about.markdown
-  - portfolio.md
+  
 
 # Exclude from processing.
 # The following items will not be processed, by default.
